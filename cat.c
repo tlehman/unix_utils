@@ -9,8 +9,8 @@
 */
 
 void usage(const char *progname) {
-   printf("%s filename\n", progname);
-   exit(EXIT_FAILURE);
+    printf("%s filename\n", progname);
+    exit(EXIT_FAILURE);
 }
 
 void print_file_contents(const char *filename) {
