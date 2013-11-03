@@ -42,7 +42,7 @@ int main(int argc, char const *argv[]) {
     } else if (stdin_non_empty()) {
         print_file_contents(STDIN_FILENO);
     } else {
-      usage(argv[0]);
+        usage(argv[0]);
     }
     return 0;
 }
