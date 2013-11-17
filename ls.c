@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <dirent.h>
 
-void print_directory_contents(const char *path) {
+void print_directory_contents(const char *path)
+{
     DIR *this_dir = opendir(path);
     struct dirent *this_file;
 
@@ -20,7 +21,8 @@ void print_directory_contents(const char *path) {
     closedir(this_dir);
 }
 
-int main(int argc, const char *argv[]) {
+int main(int argc, const char *argv[])
+{
     if(argc == 1) {
         print_directory_contents(".");
     } else {

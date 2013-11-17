@@ -9,12 +9,14 @@
   by tlehman at 1383415046 
 */
 
-void usage(const char *progname) {
+void usage(const char *progname)
+{
     printf("%s filename\n", progname);
     exit(EXIT_FAILURE);
 }
 
-void print_file_contents(int fd) {
+void print_file_contents(int fd)
+{
     ssize_t b;
     char buf[BUFSIZ];
 
@@ -23,13 +25,15 @@ void print_file_contents(int fd) {
     }
 }
 
-int stdin_non_empty() {
+int stdin_non_empty() 
+{
     fd_set fds;
     FD_SET(STDIN_FILENO, &fds);
     return select(1, &fds, NULL, NULL, NULL);
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
     int i;
     int fd;
 
