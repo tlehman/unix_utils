@@ -1,3 +1,9 @@
 Basic file system architecture
 
-The Linux file system architecture is an interesting example of abstracting complexity. Using a common set of API functions, a large variety of file systems can be supported on a large variety of storage devices. Take, for example, the read function call, which allows some number of bytes to be read from a given file descriptor. The read function is unaware of file system types, such as ext3 or NFS. It is also unaware of the particular storage medium upon which the file system is mounted, such as AT Attachment Packet Interface (ATAPI) disk, Serial-Attached SCSI (SAS) disk, or Serial Advanced Technology Attachment (SATA) disk. Yet, when the read function is called for an open file, the data is returned as expected. This article explores how this is done and investigates the major structures of the Linux file system layer.
+The Linux file system architecture is an interesting example of abstracting complexity. Using a common set of API functions, a large variety of file systems can be supported on a large variety of storage devices.
+
+Take, for example, the read function call, which allows some number of bytes to be read from a given file descriptor.
+
+The read function is unaware of file system types, such as ext3 or NFS.  It is also unaware of the particular storage medium upon which the file system is mounted, such as AT Attachment Packet Interface (ATAPI) disk, Serial-Attached SCSI (SAS) disk, or Serial Advanced Technology Attachment (SATA) disk. Yet, when the read function is called for an open file, the data is returned as expected.
+
+This article explores how this is done and investigates the major structures of the Linux file system layer.
