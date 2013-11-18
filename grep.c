@@ -16,9 +16,9 @@ int main(int argc, const char *argv[])
     } else {
         // loop over remaining argc - 2 files and grep each
         for(int i = 2; i < argc; ++i) {
-            // open file
-            // grep file
-            // close file
+            FILE *file = fopen(argv[i], "r");
+            grep(argv[1], file);
+            fclose(file);
         }
     }
 
