@@ -11,6 +11,7 @@ int match(regex_t *re, const char *line);
 
 int main(int argc, const char *argv[])
 {
+    // TODO: Check for flags
     if(2 == argc) {
         grep(argv[1], stdin);
     } else {

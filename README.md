@@ -2,6 +2,7 @@
  - cat(1)
  - ls(1)
  - grep(1)
+ - wc(1)
  - nc(1)
  - bash(1)
 
