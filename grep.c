@@ -42,7 +42,7 @@ int grep(const char *re_str, FILE *f)
 
     while( NULL != fgets(buf, BUFSIZ, f) ) {
         if(match(&re, buf)) {
-            printf("%s\n", buf);
+            printf("%s", buf);
             ++nmatches;
         }
     }
