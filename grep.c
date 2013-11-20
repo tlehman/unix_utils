@@ -35,7 +35,7 @@ int grep(const char *re_str, FILE *f)
     regex_t re; 
 
     // check re_str validity (no flags for now)
-    if(0 != regcomp(&re, re_str, 0)) {
+    if(0 != regcomp(&re, re_str, REG_ENHANCED)) {
         printf("error compiling /%s/\n", re_str);
         exit(EXIT_FAILURE);
     }
