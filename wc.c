@@ -19,14 +19,14 @@ int main(int argc, const char *argv[])
             ++chars;
             if('\n' == c) ++lines;
 
-            in_word = !isspace(c);
-
             if(in_word && isspace(c)) {
                 in_word = 1;
                 ++words;
             } else if(!in_word && !isspace(c)) {
                 in_word = 0;
             }
+            in_word = !isspace(c);
+
 
         } while(c != EOF);
     } else {
