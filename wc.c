@@ -23,35 +23,35 @@ int main(int argc, const char *argv[])
 
 void wc(const char *filename)
 {
-    char c;
+    char curr = '\0';
     int in_word = 0;
     int chars, words, lines = 0;
 
     FILE *file = fopen(filename, "r");
     do {
-        c = getc(file);
+        curr = getc(file);
 
         ++chars;
-        if('\n' == c) ++lines;
+        if('\n' == curr) ++lines;
 
-        if(in_word && isspace(c)) {
+        if(in_word && isspace(curr)) {
             in_word = 1;
             ++words;
-        } else if(!in_word && !isspace(c)) {
+        } else if(!in_word && !isspace(curr)) {
             in_word = 0;
         }
-        in_word = !isspace(c);
+        in_word = !isspace(curr);
 
-    } while(c != EOF);
+    } while(curr != EOF);
     fclose(file);
 
     // indent width = length(chars num) - length(lines num)
     int width = (int)(ceil(log10(chars)) - ceil(log10(lines)));
 
     if(strcmp("/dev/stdin", filename) == 0) {
-        printf("%2d  %d  %d\n", lines, words, chars);
+        printf("%d  %d  %d\n", lines, words, chars);
     } else {
-        printf("%2d  %d  %d  %s\n", lines, words, chars, filename);
+        printf("%d  %d  %d  %s\n", lines, words, chars, filename);
     }
 }
 
