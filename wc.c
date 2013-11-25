@@ -3,42 +3,47 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#define is_whitespace
+void wc(FILE *file);
 
 int main(int argc, const char *argv[])
+{
+    if(1 == argc) {
+        // read from pipe
+        wc(stdin);
+    } else {
+        for(int i = 1; i < argc; ++i) {
+            FILE *file = fopen(argv[i], "r");
+            wc(file);
+            fclose(file);
+        }
+    }
+
+    return 0;
+}
+
+void wc(FILE *file)
 {
     char c;
     int in_word = 0;
     int chars, words, lines = 0;
 
-    if(1 == argc) {
-        // read from pipe
-        do {
-            c = getc(stdin);
+    do {
+        c = getc(file);
 
-            ++chars;
-            if('\n' == c) ++lines;
+        ++chars;
+        if('\n' == c) ++lines;
 
-            if(in_word && isspace(c)) {
-                in_word = 1;
-                ++words;
-            } else if(!in_word && !isspace(c)) {
-                in_word = 0;
-            }
-            in_word = !isspace(c);
+        if(in_word && isspace(c)) {
+            in_word = 1;
+            ++words;
+        } else if(!in_word && !isspace(c)) {
+            in_word = 0;
+        }
+        in_word = !isspace(c);
 
-
-        } while(c != EOF);
-    } else {
-        // argv[1] is filename
-        // open file
-        // read character
-        // if EOF
-        //   close file
-    }
+    } while(c != EOF);
 
     printf("%d  %d  %d\n", lines, words, chars);
-
-    return 0;
 }
+
 
