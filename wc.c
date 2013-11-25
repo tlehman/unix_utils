@@ -23,15 +23,20 @@ int main(int argc, const char *argv[])
 
 void wc(const char *filename)
 {
+    char prev = '\n';
     char curr = '\0';
+    /* in_word is 0 when curr is not in a word, 1 otherwise */
     int in_word = 0;
-    int chars, words, lines = 0;
+    int chars = 0;
+    int words = 0;
+    int lines = 0;
 
     FILE *file = fopen(filename, "r");
     do {
+        prev = curr;
         curr = getc(file);
 
-        ++chars;
+        if('\0' != curr) ++chars;
         if('\n' == curr) ++lines;
 
         if(in_word && isspace(curr)) {
