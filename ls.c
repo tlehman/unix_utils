@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <dirent.h>
 
-void print_directory_contents(const char *path)
+void print_directory_contents(const char *path, char *flags[])
 {
     DIR *this_dir = opendir(path);
     struct dirent *this_file;
@@ -23,9 +23,19 @@ void print_directory_contents(const char *path)
     closedir(this_dir);
 }
 
+void usage()
+{
+    printf("Usage: ls [OPTION]... [FILE]...\n");
+    printf("List information about the FILEs (the current directory by default).\n");
+}
+
 int main(int argc, const char *argv[])
 {
-    if(argc == 1) {
+    // extract flags
+    // extract file/directory names
+    // loop over each file/directory, print_directory_contents(path, flags)
+
+    if( 1 == argc ) {
         print_directory_contents(".");
     } else {
         print_directory_contents(argv[1]);
