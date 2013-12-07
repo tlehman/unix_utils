@@ -8,3 +8,7 @@
 
 So that I understand Unix better.
 
+# TODO
+ - argument parsing
+ - usage output (--help)
+
