@@ -15,7 +15,9 @@ void print_directory_contents(const char *path)
     }
 
     while( (this_file = readdir(this_dir)) != NULL ) {
-        printf("%s\n", this_file->d_name);
+        if( '.' != this_file->d_name[0] ) {
+            printf("%s\n", this_file->d_name);
+        }
     }
 
     closedir(this_dir);
